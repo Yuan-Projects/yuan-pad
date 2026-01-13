@@ -27,3 +27,9 @@ Run the following in your terminal when you want to generate the compressed file
 ```
 yarn run build
 ```
+
+For testing, run:
+
+```
+yarn test
+```
