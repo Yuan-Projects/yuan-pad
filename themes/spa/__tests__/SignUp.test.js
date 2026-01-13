@@ -85,4 +85,16 @@ it('SignUp renders correctly', () => {
   expect(modal).toBeInTheDocument();
   const inputs = modal.querySelectorAll('input');
   expect(inputs.length).toBe(3);
+
+  const userNameInput = inputs[0];
+  const passwordInput = inputs[1];
+  const emailInput = inputs[2];
+
+  fireEvent.change(userNameInput, { target: { value: 'john_doe' } });
+  fireEvent.change(passwordInput, { target: { value: '123456' } })
+  fireEvent.change(emailInput, { target: { value: 'test@example.com' } })
+
+  expect(userNameInput.value).toBe('john_doe');
+  expect(passwordInput.value).toBe('123456');
+  expect(emailInput.value).toBe('test@example.com');
 });
