@@ -1,4 +1,4 @@
-import renderer from 'react-test-renderer';
+import { fireEvent, render, screen } from '@testing-library/react';
 import {
   useAppConfig,
   useTranslation,
@@ -72,7 +72,17 @@ it('SignUp renders correctly', () => {
     trigger: () => {},
   }));
 
-  const component1 = renderer.create(<SignUp />);
-  let tree1 = component1.toJSON();
-  expect(tree1).toMatchSnapshot();
+  render(<SignUp />);
+  const dialogs = document.querySelectorAll('.ReactModalPortal');
+  expect(dialogs.length).toBe(1);
+
+  const registerBtn = screen.getAllByRole('button');
+  expect(registerBtn.length).toBe(1);
+
+  fireEvent.click(registerBtn[0])
+
+  const modal = document.querySelector('.ReactModalPortal');
+  expect(modal).toBeInTheDocument();
+  const inputs = modal.querySelectorAll('input');
+  expect(inputs.length).toBe(3);
 });
