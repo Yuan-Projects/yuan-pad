@@ -24,3 +24,9 @@ start the dev server:
 ```
 yarn dev
 ```
+
+Get the code coverage:
+
+```
+yarn coverage
+```

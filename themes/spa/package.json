@@ -5,6 +5,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "coverage": "jest --coverage",
     "cy:open": "cypress open",
     "dev": "vite --host",
     "format": "yarn prettier . --write",
